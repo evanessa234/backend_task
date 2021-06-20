@@ -9,10 +9,10 @@ const model2 = require("./models/model2");
 
 var MONGODB_URL = process.env.MONGODB_URL;
 var mongoose = require("mongoose");
-mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
 	//don't show the log when it is test
 	if(process.env.NODE_ENV !== "test") {
-		console.log("Connected to %s", MONGODB_URL);
+		console.log("Connected to %s", MONGODB_URI);
 	}
 })
 	.catch(err => {
